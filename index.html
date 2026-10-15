@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PlayLingo — Phaser ESL Mini Games Developer</title>
+<meta name="description" content="Phaser & JavaScript developer building fun, lightweight ESL mini games for vocabulary, grammar, listening, reading and sentence building." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="container">
+    <a href="#top" class="logo"><span class="logo-mark">P</span>Play<span>Lingo</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#arcade">Demo Arcade</a>
+      <a href="#brief">The Brief</a>
+      <a href="#lab">Content Lab</a>
+      <a href="#generator">Idea Lab</a>
+      <a href="#process">Process</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="btn btn-primary">Hire me</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">🎮 Phaser · JavaScript · Game Design</span>
+      <h1>Tiny games.<br/><span class="hl">Big</span> <span class="squiggle">English.</span></h1>
+      <p class="lead">Hi, I'm Alex. I'm a Phaser developer who turns ESL learning goals into small browser games that kids want to play again and again. All seven games on this page are live demos. There's nothing to download and there are no image or audio files. Everything is built in code.</p>
+      <div class="hero-ctas">
+        <a href="#arcade" class="btn btn-primary">▶ Play the demos</a>
+        <a href="#contact" class="btn btn-ghost">Send me a brief</a>
+      </div>
+      <div class="hero-badges">
+        <span class="chip">📚 Vocabulary</span><span class="chip">✏️ Grammar</span>
+        <span class="chip">🧩 Sentences</span><span class="chip">🎧 Listening</span><span class="chip">📖 Reading</span>
+      </div>
+    </div>
+
+    <div class="reveal" style="position:relative">
+      <div class="mock">
+        <div class="mock-bar"><i></i><i></i><i></i></div>
+        <div class="mock-screen">
+          <div class="mock-hud"><span>🫧 Word Pop</span><span>⭐ 120 &nbsp; ⏱ 42</span></div>
+          <div class="mock-target">Pop the word:<b>🐱</b></div>
+          <div class="bubble" style="left:38%;background:#f472b6;animation-duration:7s">cat</div>
+          <div class="bubble" style="left:58%;background:#34d399;animation-duration:8.5s;animation-delay:-3s">dog</div>
+          <div class="bubble" style="left:76%;background:#fbbf24;animation-duration:6.5s;animation-delay:-1.5s">sun</div>
+          <div class="bubble" style="left:48%;background:#60a5fa;animation-duration:9s;animation-delay:-5s">fish</div>
+          <div class="bubble" style="left:68%;background:#a78bfa;animation-duration:7.5s;animation-delay:-6s">book</div>
+          <button class="btn btn-yellow mock-play" data-game="pop">▶ Try it</button>
+        </div>
+      </div>
+      <div class="float-sticker s1">🔥 Streak x5</div>
+      <div class="float-sticker s2">✅ “The cat is sleeping.”</div>
+      <div class="float-sticker s3">⭐⭐⭐</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<section class="strip">
+  <div class="container">
+    <div class="strip-inner reveal">
+      <div class="stat"><b>7</b><span>Playable Phaser demos on this page</span></div>
+      <div class="stat"><b>0</b><span>Image or audio files: art & SFX are generated in code</span></div>
+      <div class="stat"><b>3</b><span>Clean files: HTML, CSS & JS, easy to embed in any LMS</span></div>
+      <div class="stat"><b>📱💻</b><span>Responsive: mouse, touch & keyboard</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCADE -->
+<section id="arcade">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">🕹️ Demo Arcade</span>
+      <h2>Play the prototypes</h2>
+      <p>Each mini game targets one learning goal with one clear mechanic, and it gives feedback straight away. They all have scoring, timers, streaks, animations, sound and three difficulty levels.</p>
+    </div>
+
+    <div class="arcade-grid">
+      <article class="game-card reveal">
+        <div class="game-art g-pop"><span class="tag">Vocabulary</span><span class="best">Best: <b id="best-pop">—</b></span>🫧</div>
+        <div class="game-body">
+          <h3>Word Pop</h3>
+          <p>Bubbles float up the screen. Pop the one that matches the picture before it drifts away.</p>
+          <div class="meta">
+            <div><b>Goal</b><span>Fast word–picture recognition</span></div>
+            <div><b>Mechanic</b><span>Tap targets under light time pressure</span></div>
+            <div><b>Feedback</b><span>Pop burst, spoken word, streak bonus</span></div>
+          </div>
+          <button class="btn btn-primary" data-game="pop">▶ Play</button>
+        </div>
+      </article>
+
+      <article class="game-card reveal">
+        <div class="game-art g-catch"><span class="tag">Grammar</span><span class="best">Best: <b id="best-catch">—</b></span>🧺</div>
+        <div class="game-body">
+          <h3>Grammar Catch</h3>
+          <p>Words fall from the sky. Catch only the verbs, nouns or adjectives. The rule changes every 15 seconds!</p>
+          <div class="meta">
+            <div><b>Goal</b><span>Parts of speech</span></div>
+            <div><b>Mechanic</b><span>Sort by catching (arrows / mouse / touch)</span></div>
+            <div><b>Feedback</b><span>Explains mistakes: “happy is an adjective”</span></div>
+          </div>
+          <button class="btn btn-primary" data-game="catch">▶ Play</button>
+        </div>
+      </article>
+
+      <article class="game-card reveal">
+        <div class="game-art g-sentence"><span class="tag">Sentence building</span><span class="best">Best: <b id="best-sentence">—</b></span>🧩</div>
+        <div class="game-body">
+          <h3>Sentence Builder</h3>
+          <p>Put the scrambled words in order. Correct words stay locked in green, so learners can build on what they got right.</p>
+          <div class="meta">
+            <div><b>Goal</b><span>Word order & syntax</span></div>
+            <div><b>Mechanic</b><span>Tap-to-order tiles with hints</span></div>
+            <div><b>Feedback</b><span>Partial-credit highlighting + audio model</span></div>
+          </div>
+          <button class="btn btn-primary" data-game="sentence">▶ Play</button>
+        </div>
+      </article>
+
+      <article class="game-card reveal">
+        <div class="game-art g-listen"><span class="tag">Listening</span><span class="best">Best: <b id="best-listen">—</b></span>🎧</div>
+        <div class="game-body">
+          <h3>Listen & Pick</h3>
+          <p>Hear a word, then tap the right picture. Learners can replay the audio as often as they like, so there's no pressure.</p>
+          <div class="meta">
+            <div><b>Goal</b><span>Spoken word recognition</span></div>
+            <div><b>Mechanic</b><span>Audio → picture choice (Web Speech API)</span></div>
+            <div><b>Feedback</b><span>Wrong cards reveal their word</span></div>
+          </div>
+          <button class="btn btn-primary" data-game="listen">▶ Play</button>
+        </div>
+      </article>
+
+      <article class="game-card reveal">
+        <div class="game-art g-read"><span class="tag">Reading</span><span class="best">Best: <b id="best-read">—</b></span>📖</div>
+        <div class="game-body">
+          <h3>Reading Riddles</h3>
+          <p>Read a short clue and work out which picture it describes. Learners who need support can tap “Read to me”.</p>
+          <div class="meta">
+            <div><b>Goal</b><span>Reading for meaning & detail</span></div>
+            <div><b>Mechanic</b><span>Riddle → picture inference</span></div>
+            <div><b>Feedback</b><span>First-try bonus, optional audio scaffold</span></div>
+          </div>
+          <button class="btn btn-primary" data-game="read">▶ Play</button>
+        </div>
+      </article>
+
+      <article class="game-card reveal">
+        <div class="game-art g-memory"><span class="tag">Vocabulary · New</span><span class="best">Best: <b id="best-memory">—</b></span>🃏</div>
+        <div class="game-body">
+          <h3>Memory Flip</h3>
+          <p>Flip the cards to match each picture with its word. Every word card is spoken aloud when it turns over.</p>
+          <div class="meta">
+            <div><b>Goal</b><span>Picture–word mapping & recall</span></div>
+            <div><b>Mechanic</b><span>Classic pairs with flip tweens</span></div>
+            <div><b>Feedback</b><span>Spoken words, match glow, move bonus</span></div>
+          </div>
+          <button class="btn btn-primary" data-game="memory">▶ Play</button>
+        </div>
+      </article>
+
+      <article class="game-card reveal">
+        <div class="game-art g-tense"><span class="tag">Grammar · New</span><span class="best">Best: <b id="best-tense">—</b></span>🚂</div>
+        <div class="game-body">
+          <h3>Tense Train</h3>
+          <p>Drag the right verb form onto the train's sign before it leaves the station. Words like <i>yesterday</i> and <i>tomorrow</i> are the clue.</p>
+          <div class="meta">
+            <div><b>Goal</b><span>Past, present & future forms</span></div>
+            <div><b>Mechanic</b><span>Drag & drop (or tap) into the gap</span></div>
+            <div><b>Feedback</b><span>Rule hints: “Yesterday → past tense”</span></div>
+          </div>
+          <button class="btn btn-primary" data-game="tense">▶ Play</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- THE BRIEF: RESPONSIBILITIES → PROOF -->
+<section id="brief" class="brief-wrap">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">📋 Your job description</span>
+      <h2>Every responsibility, already on this page</h2>
+      <p>You don't have to take my word for it. Here's where each part of the role is shown in practice.</p>
+    </div>
+    <div class="resp-grid">
+      <a href="#arcade" class="resp reveal" style="--c:#7c3aed">
+        <span class="resp-num">01</span>
+        <h4>Design & develop ESL mini games using Phaser</h4>
+        <p>Seven Phaser 3 scenes built on one shared <code>BaseScene</code>, covering HUD, scoring, feedback, the end screen and analytics.</p>
+        <span class="resp-link">See the arcade →</span>
+      </a>
+      <a href="#approach" class="resp reveal" style="--c:#22c55e">
+        <span class="resp-num">02</span>
+        <h4>Simple mechanics for vocabulary, grammar, reading & sentences</h4>
+        <p>Seven different mechanics: tap, catch, order, listen, infer, flip and drag. Each one gives lots of quick practice of a single skill.</p>
+        <span class="resp-link">See the mapping →</span>
+      </a>
+      <a href="#skills" class="resp reveal" style="--c:#0ea5e9">
+        <span class="resp-num">03</span>
+        <h4>Clean, responsive browser-based gameplay</h4>
+        <p>The game scales to any screen with Scale.FIT, works with touch, mouse and keyboard, and keeps HTML, CSS and JS in separate files.</p>
+        <span class="resp-link">See the code →</span>
+      </a>
+      <a href="#arcade" class="resp reveal" style="--c:#ec4899">
+        <span class="resp-num">04</span>
+        <h4>Animations, sound effects, scoring, timers & feedback</h4>
+        <p>Tweens, particle bursts, sound effects synthesised with Web Audio, streak bonuses, countdowns with warning ticks, and star ratings.</p>
+        <span class="resp-link">Play one →</span>
+      </a>
+      <a href="#process" class="resp reveal" style="--c:#f59e0b">
+        <span class="resp-num">05</span>
+        <h4>Work from short briefs, prototype quickly</h4>
+        <p>A five-day loop from brief to polish, plus a real example. Tense Train went from a one-line brief to a playable game.</p>
+        <span class="resp-link">See the process →</span>
+      </a>
+      <a href="#ideas" class="resp reveal" style="--c:#fb923c">
+        <span class="resp-num">06</span>
+        <h4>Suggest improvements to make learning more fun & effective</h4>
+        <p>A roadmap of improvements. Spaced repetition, adaptive difficulty, reusable content packs and LMS events already work in these demos.</p>
+        <span class="resp-link">See suggestions →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach" class="mech-wrap">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">🎯 Learning goal → Mechanic</span>
+      <h2>Fun that serves the lesson</h2>
+      <p>I start with what the learner should be able to do. Then I pick the simplest mechanic that has them practise exactly that, many times, in a few minutes.</p>
+    </div>
+    <div class="mech-grid">
+      <div class="mech reveal" style="--c:#4f46e5"><div class="ico">📚</div><h4>Vocabulary</h4><div class="arrow">→ Recognise & recall</div><p>Matching, popping, memory and feeding mechanics. Lots of fast repetition with pictures and audio.</p><div class="mech-games">Word Pop · Memory Flip</div></div>
+      <div class="mech reveal" style="--c:#22c55e"><div class="ico">✏️</div><h4>Grammar</h4><div class="arrow">→ Sort & transform</div><p>Catching, sorting and “machine” mechanics that make a rule visible and easy to repeat.</p><div class="mech-games">Grammar Catch · Tense Train</div></div>
+      <div class="mech reveal" style="--c:#f59e0b"><div class="ico">🧩</div><h4>Sentences</h4><div class="arrow">→ Order & build</div><p>Tiles, trains and snakes where order matters. Hints give support without handing over the answer.</p><div class="mech-games">Sentence Builder</div></div>
+      <div class="mech reveal" style="--c:#ec4899"><div class="ico">🎧</div><h4>Listening</h4><div class="arrow">→ Hear & act</div><p>Audio-first choices and “Simon says” commands. Replaying the audio is always free.</p><div class="mech-games">Listen & Pick</div></div>
+      <div class="mech reveal" style="--c:#0ea5e9"><div class="ico">📖</div><h4>Reading</h4><div class="arrow">→ Read & infer</div><p>Riddles, read-and-do instructions and branching story paths that reward careful reading.</p><div class="mech-games">Reading Riddles</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT LAB -->
+<section id="lab">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">🧪 Content Lab</span>
+      <h2>Swap the words, keep the game</h2>
+      <p>Content is just data. Type a word list (one <b>word + emoji</b> per line) or load a ready-made pack, then play it straight away in three different games. Teachers and content writers never have to touch the Phaser code.</p>
+    </div>
+    <div class="lab reveal">
+      <div class="lab-edit">
+        <label for="labInput">Word list</label>
+        <div class="presets">
+          <button data-pack="animals">🐾 Animals</button>
+          <button data-pack="food">🍕 Food</button>
+          <button data-pack="classroom">🎒 Classroom</button>
+          <button data-pack="travel">✈️ Travel (teens)</button>
+        </div>
+        <textarea id="labInput" spellcheck="false" aria-describedby="labStatus"></textarea>
+        <p class="lab-status" id="labStatus"></p>
+      </div>
+      <div class="lab-preview">
+        <h4>Preview</h4>
+        <div class="lab-chips" id="labChips"></div>
+        <h4>Play this list in…</h4>
+        <div class="lab-actions">
+          <button class="btn btn-primary" data-lab-play="pop">🫧 Word Pop</button>
+          <button class="btn btn-primary" data-lab-play="listen">🎧 Listen & Pick</button>
+          <button class="btn btn-primary" data-lab-play="memory">🃏 Memory Flip</button>
+          <button class="btn btn-ghost" id="labReset">↺ Reset to default</button>
+        </div>
+        <p class="lab-note">💡 In production, the same list would come from a JSON file or CMS, and one content pack would feed every game in the suite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GENERATOR -->
+<section id="generator" style="background:#fff">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">💡 Idea Lab</span>
+      <h2>Give me a brief, get a game</h2>
+      <p>Choose a skill and an age group to see how I'd turn a short brief into a mini game concept. It's the same thinking I'd bring to your briefs.</p>
+    </div>
+    <div class="gen reveal">
+      <div class="gen-panel">
+        <h3>Mini brief</h3>
+        <p>Pick the target skill and the learners. Hit shuffle to see another mechanic.</p>
+        <label>Target skill</label>
+        <div class="seg" id="genSkill">
+          <button data-v="vocabulary" class="active">📚 Vocabulary</button>
+          <button data-v="grammar">✏️ Grammar</button>
+          <button data-v="sentence">🧩 Sentences</button>
+          <button data-v="listening">🎧 Listening</button>
+          <button data-v="reading">📖 Reading</button>
+        </div>
+        <label>Learners</label>
+        <div class="seg" id="genAge">
+          <button data-v="early" class="active">Ages 4–6</button>
+          <button data-v="young">Ages 7–9</button>
+          <button data-v="tween">Ages 10–13</button>
+          <button data-v="teen">Teens & adults</button>
+        </div>
+        <button class="btn btn-yellow" id="genBtn">🎲 Shuffle idea</button>
+      </div>
+      <div class="gen-out" id="genOut" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">⚡ Process</span>
+      <h2>From short brief to playable, fast</h2>
+      <p>Small games deserve a small, fast loop. You see something playable early, and we improve it together.</p>
+    </div>
+    <div class="timeline">
+      <div class="step reveal" style="--c:#7c3aed"><div class="num">📝</div><span class="when">Day 0</span><h4>Brief</h4><p>Learning goal, age, word list, and where the game will be used: in class, for homework or in an app.</p></div>
+      <div class="step reveal" style="--c:#ec4899"><div class="num">✏️</div><span class="when">Day 1</span><h4>Paper sketch</h4><p>A one-page sketch of the mechanic, the core loop and the feedback states for you to approve.</p></div>
+      <div class="step reveal" style="--c:#f59e0b"><div class="num">🎮</div><span class="when">Day 2–3</span><h4>Playable</h4><p>A grey-box Phaser prototype you can play in the browser and share with teachers.</p></div>
+      <div class="step reveal" style="--c:#22c55e"><div class="num">👀</div><span class="when">Day 4</span><h4>Playtest</h4><p>Watch real learners play, note where they get stuck, and tune difficulty and timing.</p></div>
+      <div class="step reveal" style="--c:#0ea5e9"><div class="num">✨</div><span class="when">Day 5+</span><h4>Polish</h4><p>Animations, sound, juice, accessibility checks and a clean, documented hand-off.</p></div>
+    </div>
+
+    <div class="case reveal">
+      <div class="case-head">
+        <span class="eyebrow">🔎 Case study</span>
+        <h3>Brief → Tense Train</h3>
+        <p class="case-brief">“A 3-minute game for Grade 3 to practise choosing past, present or future verb forms using time words.”</p>
+      </div>
+      <div class="case-grid">
+        <div class="case-col"><h5>🧠 Design decision</h5><p>The <b>time word</b> (yesterday, every day, tomorrow) carries the meaning, so it sits right next to the gap. Learners then train the habit that matters: <i>look for the time clue first</i>.</p></div>
+        <div class="case-col"><h5>🎮 Mechanic</h5><p>Drag the verb form into the sign. Younger players can also just tap it. The train leaves only after the right answer, which makes a satisfying payoff that kids want to see again.</p></div>
+        <div class="case-col"><h5>🔁 Iteration</h5><p>The first version only said “Wrong!”, so kids guessed at random. In the next version, a mistake shows the rule (“Tomorrow → future”). That one change ended the guessing, so it became a design principle.</p></div>
+        <div class="case-col"><h5>📦 Hand-off</h5><p>The sentences live in a <code>TENSE</code> data array. A teacher can add “Last summer we ___ to Spain.” without touching the game code.</p></div>
+      </div>
+      <button class="btn btn-yellow" data-game="tense">▶ Play Tense Train</button>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:#fff">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">🛠️ Skills</span>
+      <h2>What I bring to the team</h2>
+      <p>Clean, reusable Phaser code, combined with a game designer's eye and a teacher's empathy.</p>
+    </div>
+    <div class="skills">
+      <div class="skill-list">
+        <div class="skill reveal" style="--bgc:#ede9fe"><div class="ico">🎮</div><div><h4>Phaser 3</h4><p>Scenes, tweens, particles, input (tap, drag, keyboard), timers, the Scale Manager, and reusable base scenes for a shared HUD and feedback.</p></div></div>
+        <div class="skill reveal" style="--bgc:#fef3c7"><div class="ico">⚙️</div><div><h4>Modern JavaScript</h4><p>ES6+ classes, data-driven content (swap word lists without touching game code), local storage, custom events, and the Web Audio & Speech APIs.</p></div></div>
+        <div class="skill reveal" style="--bgc:#fce7f3"><div class="ico">🎨</div><div><h4>Game design</h4><p>Core loops, difficulty curves, streaks and rewards, and “juice” that celebrates progress without punishing mistakes.</p></div></div>
+        <div class="skill reveal" style="--bgc:#dcfce7"><div class="ico">🧒</div><div><h4>Learner-centred UX</h4><p>Big tap targets, picture-first UI, audio instructions, low-anxiety failure states, and short sessions that suit teachers.</p></div></div>
+        <div class="skill reveal" style="--bgc:#e0f2fe"><div class="ico">📱</div><div><h4>Responsive & lightweight</h4><p>Games scale to any screen with FIT mode, work with touch and mouse, and load quickly on school Wi-Fi and older Chromebooks.</p></div></div>
+      </div>
+
+      <div class="code reveal">
+        <div class="code-head"><i></i><i></i><i></i><span>script.js · BaseScene shared by every mini game</span></div>
+<pre><span class="c">// Every game extends one base scene, so scoring,</span>
+<span class="c">// streaks and feedback feel consistent across the suite.</span>
+<span class="k">class</span> <span class="f">BaseScene</span> <span class="k">extends</span> Phaser.Scene {
+  <span class="f">addPoints</span>(points, x, y) {
+    <span class="k">this</span>.streak++;
+    <span class="k">const</span> bonus = <span class="k">this</span>.streak >= <span class="n">3</span> ? <span class="n">5</span> : <span class="n">0</span>;
+    <span class="k">this</span>.score += points + bonus;
+    <span class="k">this</span>.<span class="f">popText</span>(x, y, <span class="s">`+${points + bonus}`</span>, <span class="s">'#16a34a'</span>);
+    <span class="k">this</span>.<span class="f">burst</span>(x, y);            <span class="c">// confetti particles</span>
+    SFX.<span class="f">play</span>(<span class="s">'correct'</span>);        <span class="c">// synthesized, no files</span>
+  }
+
+  <span class="f">miss</span>(x, y, hint) {
+    <span class="k">this</span>.streak = <span class="n">0</span>;
+    <span class="k">this</span>.cameras.main.<span class="f">shake</span>(<span class="n">150</span>, <span class="n">0.006</span>);
+    <span class="c">// Mistakes teach: show WHY, never just "wrong"</span>
+    <span class="k">this</span>.<span class="f">popText</span>(x, y, hint, <span class="s">'#dc2626'</span>);
+  }
+
+  <span class="f">track</span>(item, correct) {
+    <span class="c">// Missed words come back sooner (spaced repetition)</span>
+    correct ? <span class="f">markHit</span>(item) : <span class="f">markMissed</span>(item);
+    <span class="c">// xAPI-style event any LMS can listen to</span>
+    <span class="f">emit</span>({ verb: <span class="s">'answered'</span>, item, correct });
+  }
+}
+
+<span class="c">// Content is pure data: teachers can swap word lists</span>
+<span class="k">const</span> TENSE = [
+  { pre: <span class="s">'Yesterday I'</span>, ans: <span class="s">'went'</span>, post: <span class="s">'to the park.'</span>,
+    hint: <span class="s">'Yesterday → past tense'</span> },
+];</pre>
+      </div>
+    </div>
+
+    <div class="exp reveal">
+      <div class="exp-card"><div class="ico">🧸</div><h4>Children's learning products</h4><p>I design for small hands and short attention spans. Everything is audio-first, nothing depends on reading to get started, and there are no dark patterns or pay-to-win loops.</p></div>
+      <div class="exp-card"><div class="ico">🗣️</div><h4>Language learning</h4><p>I use comprehensible input, many short repetitions, recycled vocabulary and feedback that models the correct form, not just a red X.</p></div>
+      <div class="exp-card"><div class="ico">🏫</div><h4>Classroom tools</h4><p>Games run on projectors, tablets and Chromebooks, sessions fit the timetable, sound can be muted for a quiet room, and results are easy to export.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES & IDEAS -->
+<section id="ideas">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">🌱 Design principles</span>
+      <h2>Built for language learners</h2>
+      <p>Six rules I follow so the games stay both fun and effective.</p>
+    </div>
+    <div class="principles">
+      <div class="principle reveal" data-n="01"><div class="ico">⚡</div><h4>Instant feedback</h4><p>Every action gets a reaction within a few hundred milliseconds, with sound, motion and colour together.</p></div>
+      <div class="principle reveal" data-n="02"><div class="ico">🤗</div><h4>Safe to fail</h4><p>Mistakes show the right answer and explain why. Streaks reward success, but nothing shames the learner.</p></div>
+      <div class="principle reveal" data-n="03"><div class="ico">🔁</div><h4>Many short reps</h4><p>Three-minute sessions full of repetition work better than long levels, both for memory and for the class timetable.</p></div>
+      <div class="principle reveal" data-n="04"><div class="ico">🖼️</div><h4>Comprehensible input</h4><p>Pictures, audio models and context make the meaning clear before we ask learners to produce language.</p></div>
+      <div class="principle reveal" data-n="05"><div class="ico">🪜</div><h4>Scaffold, don't solve</h4><p>Hints reveal one step at a time and keep correct work locked in, so learners finish the task themselves.</p></div>
+      <div class="principle reveal" data-n="06"><div class="ico">👩‍🏫</div><h4>Teacher friendly</h4><p>Content lives in simple data files, the games run in any browser, and results are easy to report.</p></div>
+    </div>
+
+    <div class="ideas reveal">
+      <div>
+        <span class="eyebrow" style="background:rgba(255,255,255,.15);color:#fde68a">🚀 Improvements I'd suggest</span>
+        <h3>Making the activities even more effective</h3>
+        <p>The job also asks me to suggest improvements. Some of these already work in the demos above, and the rest are what I'd propose next.</p>
+      </div>
+      <div class="idea-list">
+        <div class="idea"><h5>🧠 Spaced repetition under the hood <span class="pill live">Live in demos</span></h5><p>Words a learner misses come back sooner and more often in Word Pop, Listen & Pick and Memory Flip. Mastered words fade out.</p></div>
+        <div class="idea"><h5>📈 Adaptive difficulty <span class="pill live">Live in demos</span></h5><p>Speed, timers and spawn rates already follow an Easy / Normal / Hard setting. The next step is adjusting them automatically based on each learner's accuracy.</p></div>
+        <div class="idea"><h5>📦 One content pack, many games <span class="pill live">Live in demos</span></h5><p>One word list in the Content Lab feeds three different games, and the same approach scales to a whole curriculum.</p></div>
+        <div class="idea"><h5>📊 Teacher dashboard events <span class="pill live">Live in demos</span></h5><p>Every answer sends a small JSON event (game, item, correct, time). Open “Live events” in the game player to see them.</p></div>
+        <div class="idea"><h5>🎤 Speaking practice <span class="pill next">Proposal</span></h5><p>Optional speech recognition, so learners can say a word to pop its bubble. Matching would be forgiving and work offline where possible.</p></div>
+        <div class="idea"><h5>🏅 Class goals, not just leaderboards <span class="pill next">Proposal</span></h5><p>The whole class works together to fill a shared progress bar, so weaker learners help the group instead of falling to the bottom of a ranking.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:#fff">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">❓ FAQ</span>
+      <h2>Good questions</h2>
+    </div>
+    <div class="faq reveal">
+      <details open><summary>How fast can you deliver a playable prototype?</summary><p>For a focused mini game like the ones on this page, a grey-box playable usually takes 2–3 days from an approved brief. After that come a playtest round and polish. Simple variations on an existing template can be quicker.</p></details>
+      <details><summary>Can teachers or content writers change the words and sentences?</summary><p>Yes. All content is kept separate from the game logic in simple data arrays or JSON. Try the Content Lab above: updating a word list, sentence set or riddle pack doesn't require touching the Phaser code.</p></details>
+      <details><summary>How is the code organised?</summary><p>Markup, styles and logic are kept separate: index.html, style.css and script.js. Inside the script, every game extends one BaseScene, and content data sits in its own block. For production, I'd split each scene into its own ES module and bundle it with Vite.</p></details>
+      <details><summary>Will the games work on tablets and Chromebooks?</summary><p>Yes. They use Phaser's Scale Manager to fit any screen, support touch, mouse and keyboard, and stay lightweight, so they load well on school networks and older devices.</p></details>
+      <details><summary>What about accessibility?</summary><p>Every game has large tap targets, audio for its instructions, a mute button, colour combined with text and icons (never colour alone), reduced-motion support on the page, and no time pressure in the listening and reading games.</p></details>
+      <details><summary>Do you work with custom art and voice-over?</summary><p>Absolutely. The demos use emoji and synthesised sound so they need no extra files, but production builds can use your illustrator's sprite sheets, animations and professional voice recordings through Phaser's loader.</p></details>
+      <details><summary>Can the games be embedded in our app or LMS?</summary><p>Yes. Each game can be built as a standalone bundle and dropped into an iframe, a React/Vue app, or a SCORM/xAPI package, with events for score and completion. The demos already send these events.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact reveal">
+      <div>
+        <span class="eyebrow">✉️ Let's build</span>
+        <h2>Got a short brief? Send it over.</h2>
+        <p>Tell me the learning goal, the learners' age and where the game will be played. I'll reply with a sketch of the mechanic and an estimated timeline.</p>
+        <div class="contact-points">
+          <div><span>⚡</span>Playable prototype in days, not weeks</div>
+          <div><span>🔁</span>Fast iteration based on your feedback</div>
+          <div><span>🧒</span>Designed for children & ESL classrooms</div>
+          <div><span>📧</span>alex@playlingo.dev</div>
+        </div>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="row2">
+          <div><label for="name">Your name</label><input id="name" required placeholder="Jane Doe" /></div>
+          <div><label for="email">Email</label><input id="email" type="email" required placeholder="jane@school.com" /></div>
+        </div>
+        <div class="row2">
+          <div><label for="skill">Skill focus</label>
+            <select id="skill"><option>Vocabulary</option><option>Grammar</option><option>Sentence building</option><option>Listening</option><option>Reading</option><option>Not sure yet</option></select></div>
+          <div><label for="age">Learner age</label>
+            <select id="age"><option>4–6</option><option>7–9</option><option>10–13</option><option>Teens / adults</option></select></div>
+        </div>
+        <div><label for="msg">Your brief</label><textarea id="msg" required placeholder="e.g. A 3-minute game to practise 'there is / there are' with farm animals for Grade 2…"></textarea></div>
+        <button class="btn btn-primary" type="submit" style="justify-content:center">🚀 Send brief</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo"><span class="logo-mark">P</span>Play<span style="color:var(--pink)">Lingo</span></div>
+  <p>Phaser ESL mini games · Built with Phaser 3, JavaScript, Web Audio & Web Speech · © <span id="year"></span></p>
+</footer>
+
+<!-- GAME MODAL -->
+<div class="modal" id="gameModal" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Mini game player">
+    <div class="modal-head">
+      <div class="modal-tabs">
+        <button data-switch="pop">🫧 Pop</button>
+        <button data-switch="catch">🧺 Catch</button>
+        <button data-switch="sentence">🧩 Sentences</button>
+        <button data-switch="listen">🎧 Listen</button>
+        <button data-switch="read">📖 Riddles</button>
+        <button data-switch="memory">🃏 Memory</button>
+        <button data-switch="tense">🚂 Tenses</button>
+      </div>
+      <div class="modal-actions">
+        <select id="diffSelect" class="icon-btn" title="Difficulty" aria-label="Difficulty">
+          <option value="easy">🐢 Easy</option>
+          <option value="normal" selected>🙂 Normal</option>
+          <option value="hard">🚀 Hard</option>
+        </select>
+        <button class="icon-btn" id="soundBtn" title="Toggle sound" aria-label="Toggle sound">🔊</button>
+        <button class="icon-btn" id="closeModal" title="Close (Esc)" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div id="game-container"></div>
+    <p class="modal-tip" id="modalTip"></p>
+    <details class="event-panel">
+      <summary>📊 Live events (what an LMS would receive)</summary>
+      <pre id="eventLog">Play a game to see events here…</pre>
+    </details>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Phaser first, then the app script -->
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
